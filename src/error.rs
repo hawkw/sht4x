@@ -13,7 +13,7 @@ pub enum Error<E> {
 
 impl<I> From<i2c::Error<I>> for Error<I::Error>
 where
-    I: embedded_hal::i2c::I2c,
+    I: embedded_hal::i2c::ErrorType,
 {
     fn from(err: i2c::Error<I>) -> Self {
         match err {
